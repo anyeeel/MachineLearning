@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Welcome</title>
+    <meta name="description" content="Prism is a beautiful Bootstrap 4 template for open-source landing pages"/>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=K2D:300,400,500,700,800" rel="stylesheet">
+
+    <!-- Bootstrap CSS / Color Scheme -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+</head>
+<body>
+    <style>
+        .bg-gradient {
+            background: linear-gradient(#ffff00, #ffff4d);
+            /* Set the background image directly using inline styles */
+            background-image: url('static/image/3.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 5rem 0;
+        }
+
+        /* Additional styling for text elements if needed */
+        .heading-brand {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+        }
+    </style>
+
+<!-- Header Section -->
+<section class="bg-gradient pt-5 pb-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex flex-row align-items-center justify-content-between">
+                <div class="heading-brand">Babanto</div>
+                <a href="{{url_for('login')}}" class="btn btn-dark">Login</a>
+            </div>
+        </div>
+        <div class="row mt-6">
+            <div class="col-md-8 mx-auto text-center">
+                <h1>Case Study No. 2 Machine Learning Model</h1>
+                <p class="lead mb-5"></p>
+            </div>
+        </div>
+</section>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>

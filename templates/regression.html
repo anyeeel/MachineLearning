@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<style>
+    body {
+        height: 100vh;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 60px 1fr;
+        grid-template-areas: "side header" "side main";
+    }
+
+    body:hover {
+        background-size: 110%;
+        /* Adjust the zoom level as needed */
+    }
+</style>
+
+<body>
+    <header class="header">
+
+    </header>
+
+    <div class="sidebar">
+        <div class="logo-details">
+         
+            <div class="logo_name">Case Study #2</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+
+        <ul class="nav-list">
+            <li>
+                <a href="{{ url_for('dashboard') }}">
+                    <i class='bx bx-plus-medical'></i>
+                    <span class="links_name">Disease Prediction</span>
+                </a>
+                <span class="tooltip">Disease Prediction</span>
+            </li>
+
+            <li>
+                <a href="{{ url_for('regression') }}">
+                    <i class='bx bxs-hot'></i>
+                    <span class="links_name">Forest Fire</span>
+                </a>
+                <span class="tooltip">Forest Fire</span>
+            </li>
+            <div class="profile">
+            <a href="{{url_for('logout')}}"><i class='bx bxs-exit' ></i></a>
+        </div>
+            
+        </ul>
+    </div>
+
+    <main class="main">
+        
+
+        <div class="card">
+        
+
+            <form method="post" action="{{ url_for('regression') }}" id="regression-form">
+                <label for="Temperature">Temperature:</label>
+                <input type="number" name="Temperature" placeholder="Celsius degrees" required>
+                <br>
+                <label for="RH">Relative Humidity in %:</label>
+                <input type="number" name="RH" required>
+                <br>
+                <label for="Ws">Wind speed in km/h:</label>
+                <input type="number" name="Ws" required>
+                <br>
+                <label for="Rain">Rain:</label>
+                <input type="number" name="Rain" required>
+                <br>
+                <label for="FFMC">Fine Fuel Moisture Code:</label>
+                <input type="number" name="FFMC" required>
+                <br>
+                <label for="DMC">Duff Moisture Code:</label>
+                <input type="number" name="DMC" required>
+                <br>
+                <label for="ISI">Initial Spread Index:</label>
+                <input type="number" name="ISI"  placeholder=""  required>
+                <br>
+                <label for="Classes">Classes:</label>
+                <input type="number" name="Classes" required>
+                <br>
+                <label for="Region">Region:</label>
+                <input type="number" name="Region" required>
+                <br>
+
+
+
+        
+                <button type="submit">Predict</button>
+            </form>
+
+
+        </div>
+        <div class="card">
+            <div class="narration">
+     
+                <h2>Forest Fire Prediction Result</h2>
+                <p>Predicted Forest Fire %: {{ prediction }}</p>
+
+                
+
+            </div>
+        </div>
+        <div class="card">
+            <div class="Dengue">
+              
+            </div>
+        </div>
+        </div>
+    </main>
+
+   
+      
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+
+<script>
+    function scrollToMain2() {
+        var main2Element = document.getElementById('main2');
+        main2Element.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+
+    closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+        menuBtnChange();
+    });
+
+    searchBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+        menuBtnChange();
+    });
+
+    function menuBtnChange() {
+        if (sidebar.classList.contains("open")) {
+            closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else {
+            closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
+    }
+</script>
+</html>

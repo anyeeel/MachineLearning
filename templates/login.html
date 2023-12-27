@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+</head>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: url('/static/image/ryunosuke-kikuno-zE-MrTmjzd4-unsplash.jpg') center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        position: relative;
+    }
+</style>
+
+<body>
+    <div class="delimiter">
+        <div class="container-login101">
+            <div class="wrap-login100 p-t-50 p-b-90">
+                <span class="form-title1">Login</span>
+
+                <form method="POST" action="" id="login-form" autocomplete="off">
+                  {{ form.hidden_tag() }}
+                  {{ form.username }}
+                  {{ form.password }}
+                  {{ form.submit }}
+              </form>
+
+                <a href="{{ url_for('register') }}" id="black">Don't have an account? Sign Up</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
